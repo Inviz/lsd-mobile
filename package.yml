@@ -1,0 +1,14 @@
+name: Mobile
+fullname: LSD mobile controls
+filename: mobile.js
+description: Some widgets specific to mobile browsers
+license: Public domain, http://unlicense.org
+copyright: Yaroslaff Fedin
+author: inviz
+sources:
+  - Source/Mobile.js
+  - Source/Body.js
+  - Source/Body/Page.js
+  - Source/Body/Dialog.js
+  - Source/Input.js
+  - Source/Input/Date.js
