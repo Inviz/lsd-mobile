@@ -26,6 +26,7 @@ LSD.Mobile.Body.Page = new Class({
       tag: 'section'
     },
     classes: ['page'],
-    header: false
+    header: false,
+    nodeType: 1
   }
 });
