@@ -26,6 +26,9 @@ LSD.Mobile.Body.Dialog = new Class({
   options: {
     classes: ['page', 'dialog'],
     nodeType: 1,
+    element: {
+      tag: 'section'
+    },
     events: {
       _dialog: {
         element: {
