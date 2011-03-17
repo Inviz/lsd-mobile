@@ -19,7 +19,10 @@ provides:
 */
 
 LSD.Mobile.Body.Dialog = new Class({
-  Extends: LSD.Mobile.Body,
+  Includes: [
+    LSD.Mobile.Body,
+    LSD.Trait.Fieldset
+  ],
   
   Stateful: Object.subset(LSD.States.Known, ['hidden']),
   
@@ -33,10 +36,17 @@ LSD.Mobile.Body.Dialog = new Class({
       _dialog: {
         element: {
           'click:relay(.cancel)': 'cancel'
-        },
-        expected: {
-          form: {
-            success: 'submit'
+        }
+      }
+    },
+    has: {
+      one: {
+        'form': {
+          selector: 'form',
+          chain: {
+            'submission': function() {
+              return ['send', this.document]
+            }
           }
         }
       }
@@ -56,6 +66,11 @@ LSD.Mobile.Body.Dialog = new Class({
   submit: function() {
     this.hide();
     this.fireEvent('submit', arguments);
+  },
+  
+  getData: function() {
+    var object = (this.form || this)
+    return object.getData.apply(object, arguments);
   },
   
   hidden: true
