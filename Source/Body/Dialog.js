@@ -65,8 +65,7 @@ LSD.Mobile.Body.Dialog = new Class({
   },
   
   getData: function() {
-    var object = (this.form || this)
-    return object.getData.apply(object, arguments);
+    return (this.form ? this.form.getData : this.parent).apply(this.form || this, arguments);
   },
   
   hidden: true
