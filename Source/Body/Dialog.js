@@ -45,17 +45,13 @@ LSD.Mobile.Body.Dialog = new Class({
           selector: 'form',
           chain: {
             'submission': function() {
-              return ['send', this.document]
+              return {action: 'send', target: this.document}
             }
           }
         }
       }
-    }
-  },
-  
-  initialize: function() {
-    this.parent.apply(this, arguments);
-    this.addPseudo('submittable');
+    },
+    pseudos: FastArray.compact('submittable')
   },
   
   cancel: function() {
