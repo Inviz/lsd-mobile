@@ -48,10 +48,15 @@ LSD.Application.Mobile = new Class({
     return page;
   },
   
-  setCurrentPage: function(page) {
-    var transformation = page.options.transformation;
-    if (transformation && this.current) this.current.element.addClass('out').addClass(transformation.name);
+  setCurrentPage: function(page, transformation, reverse) {
+    if (reverse == null) reverse = !!transformation;
+    if (!transformation) transformation = page.options.transformation;
+    if (transformation && this.current) {
+      this.current.element.addClass('out').addClass(transformation.name);
+      if (reverse) this.current.addClass('reverse');
+    }
     page.addClass('current')
+    if (reverse) page.addClass('reverse');
     page.element.addClass('in').addClass(transformation.name);
     !function() {
       if (transformation) {
@@ -59,11 +64,16 @@ LSD.Application.Mobile = new Class({
         page.element.removeClass('in').removeClass(transformation.name);
       }
       this.previous = this.current;
+      if (reverse) {
+        if (this.current) this.current.removeClass('reverse');
+        page.removeClass('reverse');
+      }
       this.current = page;
+      this.lastTransformation = transformation;
     }.delay(transformation.duration || transformation.durations[transformation.name], this);
   },
   
   back: function() {
-    if (this.previous) this.setCurrentPage(this.previous);
+    if (this.previous) this.setCurrentPage(this.previous, this.lastTransformation);
   }
 });
