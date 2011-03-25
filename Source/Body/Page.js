@@ -21,12 +21,37 @@ provides:
 LSD.Mobile.Body.Page = new Class({
   Extends: LSD.Mobile.Body,
   
+  Stateful: Object.subset(LSD.States.Known, ['hidden']),
+  
   options: {
     element: {
       tag: 'section'
     },
-    classes: ['page'],
+    layout: {
+      extract: true
+    },
+    classes: Array.fast('page'),
     header: false,
-    nodeType: 1
+    nodeType: 1,
+    transformation: {
+      name: 'cube',
+      durations: {
+        cube: 550,
+        pop: 500,
+        swap: 700,
+        slide: 300
+      }
+    },
+    events: {
+      _application: {
+        build: function() {
+          var caller = this.options.caller && this.options.caller.apply(this, arguments);
+          if (caller && caller.getAttribute('transition')) this.options.transformation.name = caller.getAttribute('transition');
+        },
+        show: function() {
+          if (LSD.application) LSD.application.setCurrentPage(this)
+        }
+      }
+    }
   }
 });

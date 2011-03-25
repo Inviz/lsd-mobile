@@ -20,22 +20,29 @@ provides:
 
 LSD.Mobile.Body.Dialog = new Class({
   Includes: [
-    LSD.Mobile.Body,
+    LSD.Mobile.Body.Page,
     LSD.Trait.Fieldset
   ],
   
-  Stateful: Object.subset(LSD.States.Known, ['hidden']),
-  
   options: {
-    classes: ['page', 'dialog'],
+    classes: Array.fast('dialog'),
+    pseudos: Array.fast('submittable'),
     nodeType: 1,
     element: {
       tag: 'section'
+    },
+    transformation: {
+      name: 'pop'
     },
     events: {
       _dialog: {
         element: {
           'click:relay(.cancel)': 'cancel'
+        },
+        self: {
+          hide: function() {
+            if (LSD.application) LSD.application.back();
+          }
         }
       }
     },
@@ -50,8 +57,7 @@ LSD.Mobile.Body.Dialog = new Class({
           }
         }
       }
-    },
-    pseudos: Array.fast('submittable')
+    }
   },
   
   cancel: function() {

@@ -24,7 +24,7 @@ LSD.Application.Mobile = new Class({
   setDocument: function() {
     this.parent.apply(this, arguments);
     if (this.loading) {
-      this.setCurrentPage(this.loading);
+      this.loading.show();
       this.loading.element.removeClass('loading');
       delete this.loading;
     }
@@ -36,27 +36,34 @@ LSD.Application.Mobile = new Class({
     else this.setPage(element)
   },
   
+  getBodyClass: function() {
+    return LSD.Widget.Body.Page
+  },
+  
   setPage: function(element) {
     var page = this.page = LSD.Application.prototype.setBody.apply(this, arguments);
     if (element.hasClass("current")) this.current = page;
+    else page.hidden = true;
     if (element.hasClass("loading")) this.loading = page;
     return page;
   },
   
-  setCurrentPage: function(page, transition) {
-    if (!transition) transition = 'cube';
-    if (this.current) this.current.element.addClass('out').addClass(transition);
+  setCurrentPage: function(page) {
+    var transformation = page.options.transformation;
+    if (transformation && this.current) this.current.element.addClass('out').addClass(transformation.name);
     page.addClass('current')
-    page.element.addClass('in').addClass(transition);
-    (function() {
-      this.current.element.removeClass('out').removeClass(transition).removeClass('current')
-      page.element.removeClass('in').removeClass(transition);
-      this.previous = [this.current, transition];
+    page.element.addClass('in').addClass(transformation.name);
+    !function() {
+      if (transformation) {
+        this.current.element.removeClass('out').removeClass(transformation.name).removeClass('current')
+        page.element.removeClass('in').removeClass(transformation.name);
+      }
+      this.previous = this.current;
       this.current = page;
-    }).delay(750, this);
+    }.delay(transformation.duration || transformation.durations[transformation.name], this);
   },
   
   back: function() {
-    if (this.previous) this.setCurrentPage.apply(this, this.previous);
+    if (this.previous) this.setCurrentPage(this.previous);
   }
 });
