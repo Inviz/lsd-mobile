@@ -37,7 +37,7 @@ LSD.Mobile.Body.Page = new Class({
       name: 'cube',
       durations: {
         cube: 550,
-        pop: 500,
+        pop: 350,
         swap: 700,
         slide: 300
       }

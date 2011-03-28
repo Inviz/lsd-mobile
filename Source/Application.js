@@ -37,7 +37,7 @@ LSD.Application.Mobile = new Class({
   },
   
   getBodyClass: function() {
-    return LSD.Widget.Body.Page
+    return LSD.Mobile.Body.Page
   },
   
   setPage: function(element) {
