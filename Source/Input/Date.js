@@ -79,4 +79,4 @@ LSD.Mobile.Input.Date = new Class({
     this.parent.apply(this, arguments);
     if (this.dialogs && this.dialogs.calendar && this.dialogs.calendar.table) this.dialogs.calendar.table.setDate(date);
   }
-})
+});

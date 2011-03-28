@@ -21,4 +21,4 @@ provides:
 
 LSD.Mobile.Input = new Class({
   Extends: LSD.Native.Input
-})
+});
