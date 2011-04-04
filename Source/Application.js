@@ -42,6 +42,8 @@ LSD.Application.Mobile = new Class({
   
   setPage: function(element) {
     var page = this.page = LSD.Application.prototype.setBody.apply(this, arguments);
+    if (!this.pages) this.pages = [];
+    this.pages.push(page);
     if (element.hasClass("current")) this.current = page;
     else page.hidden = true;
     if (element.hasClass("loading")) this.loading = page;
