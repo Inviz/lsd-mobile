@@ -27,10 +27,6 @@ LSD.Mobile.Input.Date = new Class({
     LSD.Mixin.Dialog
   ],
   
-  Stateful: {
-    'expanded': ['expand', 'collapse', 'toggle']
-  },
-  
   options: {
     attributes: {
       type: 'date'
@@ -63,7 +59,8 @@ LSD.Mobile.Input.Date = new Class({
           }
         }
       }
-    }
+    },
+    states: Array.fast('expanded')
   },
   
   initialize: function() {

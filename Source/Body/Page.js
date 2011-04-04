@@ -21,8 +21,6 @@ provides:
 LSD.Mobile.Body.Page = new Class({
   Extends: LSD.Mobile.Body,
   
-  Stateful: Object.subset(LSD.States.Known, ['hidden']),
-  
   options: {
     element: {
       tag: 'section'
@@ -52,6 +50,7 @@ LSD.Mobile.Body.Page = new Class({
           if (LSD.application) LSD.application.setCurrentPage(this)
         }
       }
-    }
+    },
+    states: Array.fast('hidden')
   }
 });
