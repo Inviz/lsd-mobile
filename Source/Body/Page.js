@@ -37,7 +37,7 @@ LSD.Mobile.Body.Page = new Class({
         cube: 550,
         pop: 350,
         swap: 700,
-        slide: 300,
+        slide: 450,
         fade: 500,
         slideup: 400
       }
