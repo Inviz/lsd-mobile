@@ -32,12 +32,14 @@ LSD.Mobile.Body.Page = new Class({
     header: false,
     nodeType: 1,
     transformation: {
-      name: 'cube',
+      name: 'fade',
       durations: {
         cube: 550,
         pop: 350,
         swap: 700,
-        slide: 300
+        slide: 300,
+        fade: 500,
+        slideup: 400
       }
     },
     events: {

@@ -32,7 +32,7 @@ LSD.Mobile.Body.Dialog = new Class({
       tag: 'section'
     },
     transformation: {
-      name: 'pop'
+      name: 'slideup'
     },
     events: {
       _dialog: {
