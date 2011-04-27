@@ -25,15 +25,10 @@ LSD.Mobile.Body.Dialog = new Class({
   ],
   
   options: {
-    classes: Array.fast('dialog'),
-    pseudos: Array.fast('submittable'),
-    nodeType: 1,
-    element: {
-      tag: 'section'
-    },
     transformation: {
       name: 'slideup'
     },
+    classes: Array.fast('dialog'),
     events: {
       _dialog: {
         element: {

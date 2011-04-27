@@ -64,10 +64,6 @@ LSD.Mobile.Input.Date = new Class({
     this.setDate(this.getDate());
   },
   
-  getRawDate: function() {
-    return this.getValue();
-  },
-  
   setDate: function(date) {
     this.parent.apply(this, arguments);
     if (date) this.element.set('value', this.formatDate(date));
@@ -82,6 +78,7 @@ LSD.Mobile.Body.Dialog.Datepicker = new Class({
   ],
   
   options: {
+    classes: Array.fast('datepicker'),
     layout: {
       children: {
         '::decrementor': 'Previous month',

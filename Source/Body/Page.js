@@ -10,7 +10,7 @@ license: Public domain (http://unlicense.org).
 authors: Yaroslaff Fedin
  
 requires:
-  - LSD.Mobile.Body
+  - Native/LSD.Native.Body.Page
 
 provides:
   - LSD.Mobile.Body.Page
@@ -19,25 +19,21 @@ provides:
 */
 
 LSD.Mobile.Body.Page = new Class({
-  Extends: LSD.Mobile.Body,
+  Extends: LSD.Native.Body.Page,
   
   options: {
-    element: {
-      tag: 'section'
-    },
     layout: {
       extract: true
     },
     classes: Array.fast('page'),
     header: false,
-    nodeType: 1,
     transformation: {
       name: 'fade',
       durations: {
         cube: 550,
         pop: 350,
         swap: 700,
-        slide: 450,
+        slide: 250,
         fade: 500,
         slideup: 400
       }
