@@ -11,6 +11,7 @@ authors: Yaroslaff Fedin
  
 requires:
   - Native/LSD.Native.Body.Page
+  - Mobile/LSD.Mobile.Body
 
 provides:
   - LSD.Mobile.Body.Page

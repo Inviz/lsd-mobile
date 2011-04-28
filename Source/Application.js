@@ -10,6 +10,7 @@ license: Public domain (http://unlicense.org).
 authors: Yaroslaff Fedin
  
 requires:
+  - Mobile/LSD.Mobile.Body.Page
   - LSD/LSD.Application
   
 provides:
