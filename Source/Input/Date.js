@@ -45,7 +45,7 @@ LSD.Mobile.Input.Date = new Class({
     },
     chain: {
       prompt: function() {
-        return {name: 'dialog', target: 'datepicker'}
+        return {action: 'dialog', target: 'datepicker'}
       },
       update: function() {
         return { 

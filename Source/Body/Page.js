@@ -26,7 +26,6 @@ LSD.Mobile.Body.Page = new Class({
     layout: {
       extract: true
     },
-    classes: Array.fast('page'),
     header: false,
     transformation: {
       name: 'fade',
@@ -49,7 +48,6 @@ LSD.Mobile.Body.Page = new Class({
           if (LSD.application) LSD.application.setCurrentPage(this)
         }
       }
-    },
-    states: Array.fast('hidden')
+    }
   }
 });
