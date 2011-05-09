@@ -10,7 +10,7 @@ license: Public domain (http://unlicense.org).
 authors: Yaroslaff Fedin
  
 requires:
-  - Native/LSD.Native.Body.Page
+  - Widgets/LSD.Widget.Body.Page
   - Mobile/LSD.Mobile.Body
 
 provides:
@@ -19,8 +19,8 @@ provides:
 ...
 */
 
-LSD.Mobile.Body.Page = new Class({
-  Extends: LSD.Native.Body.Page,
+LSD.Mobile.define('Body.Page', {
+  Extends: LSD.Widget.Body.Page,
   
   options: {
     layout: {

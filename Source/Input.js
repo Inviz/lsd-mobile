@@ -19,6 +19,6 @@ provides:
 ...
 */
 
-LSD.Mobile.Input = new Class({
+LSD.Mobile.define('Input', {
   Extends: LSD.Native.Input
 });

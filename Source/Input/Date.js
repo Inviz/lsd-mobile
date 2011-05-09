@@ -21,9 +21,8 @@ provides:
 ...
 */
 
-LSD.Mobile.Input.Date = new Class({
-  Includes: [
-    LSD.Mobile.Input,
+LSD.Mobile.define('Input.Date', {
+  Implements: [
     LSD.Trait.Date,
     LSD.Mixin.Dialog
   ],
@@ -71,11 +70,10 @@ LSD.Mobile.Input.Date = new Class({
   }
 });
 
-LSD.Mobile.Body.Dialog.Datepicker = new Class({
-  Includes: [
-    LSD.Mobile.Body.Dialog,
-    LSD.Trait.Date
-  ],
+LSD.Mobile.define('Body.Dialog.Datepicker', {
+  Extends: LSD.Mobile.Body.Dialog,
+  
+  Implements: LSD.Trait.Date,
   
   options: {
     classes: Array.fast('datepicker'),

@@ -18,11 +18,10 @@ provides:
 ...
 */
 
-LSD.Mobile.Body.Dialog = new Class({
-  Includes: [
-    LSD.Mobile.Body.Page,
-    LSD.Trait.Fieldset
-  ],
+LSD.Mobile.define('Body.Dialog', {
+  Extends: LSD.Mobile.Body.Page,
+  
+  Implements: [LSD.Trait.Fieldset],
   
   options: {
     transformation: {

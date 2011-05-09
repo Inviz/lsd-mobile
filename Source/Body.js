@@ -11,7 +11,7 @@ authors: Yaroslaff Fedin
  
 requires:
   - LSD.Mobile
-  - Native/LSD.Native.Body
+  - Widgets/LSD.Widget.Body
 
 provides:
   - LSD.Mobile.Body
@@ -19,8 +19,8 @@ provides:
 ...
 */
 
-LSD.Mobile.Body = new Class({
-  Extends: LSD.Native.Body,
+LSD.Mobile.define('Body', {
+  Extends: LSD.Widget.Body,
   
   options: {
     element: {
