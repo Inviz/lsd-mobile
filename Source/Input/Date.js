@@ -78,12 +78,10 @@ LSD.Mobile.define('Body.Dialog.Datepicker', {
   options: {
     classes: Array.fast('datepicker'),
     layout: {
-      children: {
-        '::decrementor': 'Previous month',
-        '::incrementor': 'Next month',
-        '::table': true,
-        '::closer': 'Close dialog'
-      }
+      '::decrementor': 'Previous month',
+      '::incrementor': 'Next month',
+      '::table': true,
+      '::closer': 'Close dialog'
     },
     has: {
       one: {

@@ -23,9 +23,6 @@ LSD.Mobile.define('Body.Page', {
   Extends: LSD.Widget.Body.Page,
   
   options: {
-    layout: {
-      extract: true
-    },
     header: false,
     transformation: {
       name: 'fade',
