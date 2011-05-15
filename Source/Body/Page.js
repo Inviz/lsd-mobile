@@ -19,7 +19,7 @@ provides:
 ...
 */
 
-LSD.Mobile.define('Body.Page', {
+LSD.Mobile.Body.Page = new Class({
   Extends: LSD.Widget.Body.Page,
   
   options: {

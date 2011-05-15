@@ -18,7 +18,7 @@ provides:
 ...
 */
 
-LSD.Mobile.define('Body.Dialog', {
+LSD.Mobile.Body.Dialog = new Class({
   Extends: LSD.Mobile.Body.Page,
   
   Implements: [LSD.Trait.Fieldset],
@@ -36,6 +36,14 @@ LSD.Mobile.define('Body.Dialog', {
         self: {
           hide: function() {
             if (LSD.application) LSD.application.back();
+          },
+          'submit': function() {
+            var caller = this.getCaller();
+            if (caller && caller.callChain) caller.callChain(this.getData());
+          },
+          'cancel': function() {
+            var caller = this.getCaller();
+            if (caller && caller.clearChain) caller.clearChain(this.getData());
           }
         }
       }
@@ -68,5 +76,9 @@ LSD.Mobile.define('Body.Dialog', {
     return (this.form ? this.form.getData : this.parent).apply(this.form || this, arguments);
   },
   
-  hidden: true
+  hidden: true,
+  
+  getCaller: function() {
+    return this.options.caller && this.options.caller.call(this);
+  }
 });

@@ -19,7 +19,7 @@ provides:
 ...
 */
 
-LSD.Mobile.define('Body', {
+LSD.Mobile.Body = new Class({
   Extends: LSD.Widget.Body,
   
   options: {
