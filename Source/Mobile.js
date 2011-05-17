@@ -11,6 +11,7 @@ authors: Yaroslaff Fedin
  
 requires:
   - LSD/LSD.Type
+  - Mobile/Browser.Mobile
  
 provides: 
   - LSD.Mobile
@@ -20,5 +21,7 @@ provides:
 
 new LSD.Type('Mobile');
 
-// Inject mobile widgets into default widget pool
-LSD.Element.pool.splice(1, 0, LSD.Mobile);
+if (Browser.isMobile) {
+  // Inject mobile widgets into default widget pool
+  LSD.Element.pool.splice(1, 0, LSD.Mobile);
+}
