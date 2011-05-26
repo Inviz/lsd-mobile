@@ -21,12 +21,11 @@ provides:
 LSD.Mobile.Body.Dialog = new Class({
   Extends: LSD.Mobile.Body.Page,
   
-  Implements: [LSD.Trait.Fieldset],
-  
   options: {
     transformation: {
       name: 'slideup'
     },
+    pseudos: Array.fast('fieldset'),
     classes: Array.fast('dialog'),
     events: {
       _dialog: {
@@ -35,7 +34,7 @@ LSD.Mobile.Body.Dialog = new Class({
         },
         self: {
           hide: function() {
-            if (LSD.application) LSD.application.back();
+            if (LSD.document) LSD.document.back();
           },
           'submit': function() {
             var caller = this.getCaller();

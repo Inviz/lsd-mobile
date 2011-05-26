@@ -42,7 +42,7 @@ LSD.Mobile.Body.Page = new Class({
           if (caller && caller.getAttribute('transition')) this.options.transformation.name = caller.getAttribute('transition');
         },
         show: function() {
-          if (LSD.application) LSD.application.setCurrentPage(this)
+          if (LSD.document) LSD.document.setCurrentPage(this)
         }
       }
     }

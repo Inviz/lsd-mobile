@@ -11,18 +11,18 @@ authors: Yaroslaff Fedin
  
 requires:
   - Mobile/LSD.Mobile.Body.Page
-  - LSD/LSD.Application
+  - LSD/LSD.Document
   
 provides:
-  - LSD.Application.Mobile
+  - LSD.Mobile.Document
  
 ...
 */
 
-LSD.Application.Mobile = new Class({
-  Extends: LSD.Application,
+LSD.Mobile.Document = new Class({
+  Extends: LSD.Document,
   
-  setDocument: function() {
+  build: function() {
     this.parent.apply(this, arguments);
     if (this.loading) {
       this.loading.show();
@@ -35,10 +35,6 @@ LSD.Application.Mobile = new Class({
     var pages = Slick.search(element, "> section.page");
     if (pages.length) pages.each(this.setPage.bind(this))
     else this.setPage(element)
-  },
-  
-  getBodyClass: function() {
-    return LSD.Mobile.Body.Page
   },
   
   setPage: function(element) {

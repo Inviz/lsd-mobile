@@ -7,7 +7,7 @@ copyright: Yaroslaff Fedin
 author: inviz
 sources:
   - Source/Mobile.js
-  - Source/Application.js
+  - Source/Document.js
   - Source/Body.js
   - Source/Body/Page.js
   - Source/Body/Dialog.js
