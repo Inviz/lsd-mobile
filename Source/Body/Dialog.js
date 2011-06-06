@@ -35,49 +35,23 @@ LSD.Mobile.Body.Dialog = new Class({
         self: {
           hide: function() {
             if (LSD.document) LSD.document.back();
-          },
-          'submit': function() {
-            var caller = this.getCaller();
-            if (caller && caller.callChain) caller.callChain(this.getData());
-          },
-          'cancel': function() {
-            var caller = this.getCaller();
-            if (caller && caller.clearChain) caller.clearChain(this.getData());
           }
         }
       }
     },
     has: {
       one: {
-        'form': {
+        form: {
           selector: 'form',
-          chain: {
-            'submission': function() {
-              return {action: 'send', target: this.document}
-            }
-          }
+          as: 'invoker'
         }
       }
     }
-  },
-  
-  cancel: function() {
-    this.hide();
-    this.fireEvent('cancel', arguments);
-  },
-  
-  submit: function() {
-    this.hide();
-    this.fireEvent('submit', arguments);
   },
   
   getData: function() {
     return (this.form ? this.form.getData : this.parent).apply(this.form || this, arguments);
   },
   
-  hidden: true,
-  
-  getCaller: function() {
-    return this.options.caller && this.options.caller.call(this);
-  }
+  hidden: true
 });

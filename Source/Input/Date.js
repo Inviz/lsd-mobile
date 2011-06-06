@@ -32,14 +32,8 @@ LSD.Mobile.Input.Date = new Class({
       type: 'date'
     },
     events: {
-      element: {
-        focus: 'expand'
-      },
       self: {
-        focus: 'expand',
-        expand: function() {
-          this.callChain();
-        }
+        focus: 'expand'
       }
     },
     chain: {
