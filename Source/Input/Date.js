@@ -13,7 +13,6 @@ requires:
   - LSD.Mobile.Input
   - LSD.Mobile.Body.Dialog
   - LSD/LSD.Trait.Date
-  - LSD/LSD.Mixin.Dialog
 
 provides: 
   - LSD.Mobile.Input.Date
@@ -22,10 +21,7 @@ provides:
 */
 
 LSD.Mobile.Input.Date = new Class({
-  Implements: [
-    LSD.Trait.Date,
-    LSD.Mixin.Dialog
-  ],
+  Implements: LSD.Trait.Date,
   
   options: {
     attributes: {
