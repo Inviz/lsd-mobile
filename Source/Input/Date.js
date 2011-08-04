@@ -12,7 +12,7 @@ authors: Yaroslaff Fedin
 requires:
   - LSD.Mobile.Input
   - LSD.Mobile.Body.Dialog
-  - LSD/LSD.Trait.Date
+  - LSD/LSD.Mixin.Date
 
 provides: 
   - LSD.Mobile.Input.Date
@@ -21,8 +21,6 @@ provides:
 */
 
 LSD.Mobile.Input.Date = new Class({
-  Implements: LSD.Trait.Date,
-  
   options: {
     attributes: {
       type: 'date'
@@ -32,88 +30,15 @@ LSD.Mobile.Input.Date = new Class({
         focus: 'expand'
       }
     },
-    chain: {
-      prompt: function() {
-        return {action: 'dialog', target: 'datepicker'}
-      },
-      update: function() {
-        return { 
-          callback: function(date) {
-            this.setDate(date);
-            this.collapse();
-          }
-        }
-      }
-    },
-    states: Array.fast('expanded')
-  },
-  
-  initialize: function() {
-    this.parent.apply(this, arguments);
-    this.setDate(this.getDate());
-  },
-  
-  setDate: function(date) {
-    this.parent.apply(this, arguments);
-    if (date) this.element.set('value', this.formatDate(date));
-    if (this.dialog) this.dialog.setDate(date);
-  }
-});
-
-LSD.Mobile.Body.Dialog.Datepicker = new Class({
-  Extends: LSD.Mobile.Body.Dialog,
-  
-  Implements: LSD.Trait.Date,
-  
-  options: {
-    classes: Array.fast('datepicker'),
-    layout: {
-      '::decrementor': 'Previous month',
-      '::incrementor': 'Next month',
-      '::table': true,
-      '::closer': 'Close dialog'
-    },
-    has: {
-      one: {
-        table: {
-          selector: 'table[type=calendar]',
-          events: {
-            set: 'selectDate'
-          }
-        },
-        decrementor: {
-          selector: 'button#decrement',
-          events: {
-            click: 'decrement'
-          }
-        },
-        incrementor: {
-          selector: 'button#increment',
-          events: {
-            click: 'increment'
-          }
-        },
-        closer: {
-          selector: 'button#closer',
-          events: {
-            click: 'cancel'
-          }
+    pseudos: Array.object('date'),
+    states: Array.object('expanded'),
+    events: {
+      self: {
+        setDate: function(date) {
+          if (date) this.element.set('value', this.formatDate(date));
+          if (this.dialog) this.dialog.setDate(date);
         }
       }
     }
-  },
-  
-  getData: function() {
-    return this.date;
-  },
-  
-  setDate: function(date) {
-    this.parent.apply(this, arguments);
-    this.table.setDate(date);
-  },
-  
-  selectDate: function(date) {
-    this.setDate(date);
-    this.submit();
   }
-})
+});

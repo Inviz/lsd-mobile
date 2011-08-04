@@ -25,8 +25,8 @@ LSD.Mobile.Body.Dialog = new Class({
     transformation: {
       name: 'slideup'
     },
-    pseudos: Array.fast('fieldset'),
-    classes: Array.fast('dialog'),
+    pseudos: Array.object('fieldset'),
+    classes: Array.object('dialog'),
     events: {
       _dialog: {
         element: {
